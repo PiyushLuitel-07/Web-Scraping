@@ -15,6 +15,7 @@ class QuoteSpider(scrapy.Spider):
         # title=response.css('title::text').extract()
         # yield {'titletext':title}
 
+        items=QuotetutorialItem()
         all_div_quotes=response.css("div.quote")
 
         for quotes in all_div_quotes:
