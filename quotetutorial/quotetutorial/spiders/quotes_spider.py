@@ -11,6 +11,16 @@ class QuoteSpider(scrapy.Spider):
 
     def parse(self,response):
         # response contains the source code of the website https://quotes.toscrape.com/ in this case
-        title=response.css('title::text').extract()
-        yield {'titletext':title}
+        # title=response.css('title::text').extract()
+        # yield {'titletext':title}
 
+        all_div_quotes=response.css("div.quote")[0]
+        title=all_div_quotes.css("span.text::text").extract()
+        author=all_div_quotes.css(".author::text").extract()
+        tag=all_div_quotes.css(".tags::text").extract()
+
+        yield{
+            'title':title,
+            'author':author,
+            'tag':tag
+        }
