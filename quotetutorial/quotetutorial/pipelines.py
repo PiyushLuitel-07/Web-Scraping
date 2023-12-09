@@ -20,7 +20,7 @@ class QuotetutorialPipeline:
       self.conn=mysql.connector.connect(
          host='localhost',
          user='root',
-         passw='9803474343',
+         passwd='9803474343',
          database='myquotes'
       )
       self.curr=self.conn.cursor()

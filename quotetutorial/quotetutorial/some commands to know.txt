@@ -21,3 +21,6 @@ response.css("li.next a").xpath("@href").extract()
 
 //this gives all values of href that are in the page
  response.css("a").xpath("@href").extract()
+
+//to convert the output into csv file
+scrapy crawl quotes -o items.csv
