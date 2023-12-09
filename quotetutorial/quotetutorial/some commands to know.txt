@@ -1,0 +1,23 @@
+go to conda, activate the environment.then
+
+1.
+scrapy crawl spider_name
+
+2. to open a scrapy shell.
+scrapy shell "https://quotes.toscrape.com/"
+
+then enter this in shell
+response.css("title::text")[0].extract() 
+response.css("title::text").extract_first()
+response.css(".author::text").extract()
+response.css("spam.text::text").extract()
+
+using xpath
+response.xpath("//title/text()").extract()
+response.xpath("//span[@class='text']/text()").extract()
+
+//go to li tag ..class is next. inside that has 'a' tag. extract href's value from a tag
+response.css("li.next a").xpath("@href").extract()
+
+//this gives all values of href that are in the page
+ response.css("a").xpath("@href").extract()

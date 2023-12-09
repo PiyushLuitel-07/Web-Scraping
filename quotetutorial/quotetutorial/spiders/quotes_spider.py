@@ -1,4 +1,5 @@
 import scrapy
+from ..items import QuotetutorialItem
 
 # this class inherits from Spider class that inherits from scrapy class
 class QuoteSpider(scrapy.Spider):
