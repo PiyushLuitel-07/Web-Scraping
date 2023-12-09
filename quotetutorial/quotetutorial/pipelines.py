@@ -15,6 +15,7 @@ class QuotetutorialPipeline:
     def __init__(self):
       self.create_connection()
       self.create_table()
+    
     def create_connection(self):
       self.conn=mysql.connector.connect(
          host='localhost',
@@ -22,3 +23,14 @@ class QuotetutorialPipeline:
          passw='9803474343',
          database='myquotes'
       )
+      self.curr=self.conn.cursor()
+
+    def create_table(self):
+       self.curr.execute("""DROP TABLE IF EXISTS quotes_tb;""")
+       self.curr.execute("""CREATE TABLE quotes_tb(
+                         title text,
+                         author text,
+                         tag text
+       );""")
+
+    def 
