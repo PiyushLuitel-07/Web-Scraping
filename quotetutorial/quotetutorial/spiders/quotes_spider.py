@@ -23,8 +23,8 @@ class QuoteSpider(scrapy.Spider):
             author=quotes.css(".author::text").extract()
             tag=quotes.css(".tag::text").extract()
 
-            yield{
-                'title':title,
-                'author':author,
-                'tag':tag
-            }
+            items['title']=title
+            items['author']=author
+            items['tag']=tag
+
+            yield items
