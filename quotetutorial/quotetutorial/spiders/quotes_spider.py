@@ -14,13 +14,15 @@ class QuoteSpider(scrapy.Spider):
         # title=response.css('title::text').extract()
         # yield {'titletext':title}
 
-        all_div_quotes=response.css("div.quote")[0]
-        title=all_div_quotes.css("span.text::text").extract()
-        author=all_div_quotes.css(".author::text").extract()
-        tag=all_div_quotes.css(".tag::text").extract()
+        all_div_quotes=response.css("div.quote")
 
-        yield{
-            'title':title,
-            'author':author,
-            'tag':tag
-        }
+        for quotes in all_div_quotes:
+            title=quotes.css("span.text::text").extract()
+            author=quotes.css(".author::text").extract()
+            tag=quotes.css(".tag::text").extract()
+
+            yield{
+                'title':title,
+                'author':author,
+                'tag':tag
+            }
