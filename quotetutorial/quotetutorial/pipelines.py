@@ -33,4 +33,15 @@ class QuotetutorialPipeline:
                          tag text
        );""")
 
-    def 
+    def process_item(self,item,spider):
+       self.store_db(item)
+       return item
+    def store_db(self,item):
+       self.curr.execute("""insert into quotes_tb values (%s,%s,%s)""",(
+          item['title'][0],
+          item['author'][0],
+          item['tag'][0]
+       ))
+       self.conn.commit()
+       
+       
