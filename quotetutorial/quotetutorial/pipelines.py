@@ -14,7 +14,7 @@ class QuotetutorialPipeline:
    
     def __init__(self):
       self.create_connection()
-      self.create_table()
+    #   self.create_table()
     
     def create_connection(self):
       self.conn=mysql.connector.connect(
